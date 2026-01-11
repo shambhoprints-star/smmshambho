@@ -1,13 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>SMM SHAMBHO – Best SMM Services in India</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Best SMM Services in India. Instagram, YouTube, Telegram followers, likes, views at affordable prices.">
-  <meta name="keywords" content="SMM services India, Instagram followers India, YouTube subscribers India, Telegram members India">
-  <meta name="author" content="SMM SHAMBHO">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
@@ -24,88 +20,80 @@
     <!-- ABOUT -->
     <div class="section fade-up">
       <h2>About SMM SHAMBHO</h2>
-      <p>Welcome to <b>SMM SHAMBHO</b>. We provide high-quality Instagram, YouTube and Telegram SMM services. Fast, secure and affordable for creators, businesses and resellers.</p>
-      <p><b>SMM SHAMBHO</b> मध्ये Instagram followers, likes, views, YouTube subscribers, watch time आणि Telegram members उपलब्ध आहेत.</p>
+      <p>We provide high-quality Instagram, YouTube and Telegram SMM services. Fast, secure, and affordable for creators, businesses, and resellers.</p>
     </div>
 
-    <!-- SERVICES -->
+    <!-- SERVICES SLIDES -->
     <div class="section fade-up">
       <h2>Our Services</h2>
-      <div class="cards">
-        <div class="card gradient-icon">
-          <i class="fab fa-instagram fa-2x"></i>
+      <div class="service-slides">
+        <div class="slide-card gradient-icon">
+          <i class="fab fa-instagram"></i>
           <h3>Instagram</h3>
           <p>Followers<br>Likes<br>Views<br>Reels Boost</p>
         </div>
-        <div class="card gradient-icon">
-          <i class="fab fa-youtube fa-2x"></i>
+        <div class="slide-card gradient-icon">
+          <i class="fab fa-youtube"></i>
           <h3>YouTube</h3>
           <p>Subscribers<br>Views<br>Watch Time<br>Likes</p>
         </div>
-        <div class="card gradient-icon">
-          <i class="fab fa-telegram fa-2x"></i>
+        <div class="slide-card gradient-icon">
+          <i class="fab fa-telegram"></i>
           <h3>Telegram</h3>
           <p>Channel Members<br>Group Members<br>Post Views</p>
         </div>
       </div>
     </div>
 
-    <!-- PRICING TABLE -->
-    <div class="section fade-up">
-      <h2>Pricing Plans</h2>
-      <div class="pricing-cards">
-        <div class="price-card">
-          <h3>Instagram</h3>
-          <ul>
-            <li>1K Followers – ₹199</li>
-            <li>5K Followers – ₹899</li>
-            <li>Likes / Views</li>
-          </ul>
-        </div>
-        <div class="price-card">
-          <h3>YouTube</h3>
-          <ul>
-            <li>1K Subscribers – ₹499</li>
-            <li>1K Views – ₹149</li>
-            <li>Watch Time</li>
-          </ul>
-        </div>
-        <div class="price-card">
-          <h3>Telegram</h3>
-          <ul>
-            <li>1K Members – ₹299</li>
-            <li>Post Views</li>
-          </ul>
-        </div>
+    <!-- DROP-DOWN ORDER RIGHT SIDE -->
+    <div class="section fade-up order-section">
+      <h2>Order Your Service</h2>
+      <div class="order-container">
+        <p>Select your service:</p>
+        <form id="serviceForm">
+          <select id="serviceSelect">
+            <option value="" disabled selected>Select Service</option>
+            <optgroup label="Instagram">
+              <option value="Instagram 1K Followers – ₹199">1K Followers – ₹199</option>
+              <option value="Instagram 5K Followers – ₹899">5K Followers – ₹899</option>
+              <option value="Instagram Likes / Views">Likes / Views</option>
+            </optgroup>
+            <optgroup label="YouTube">
+              <option value="YouTube 1K Subscribers – ₹499">1K Subscribers – ₹499</option>
+              <option value="YouTube 1K Views – ₹149">1K Views – ₹149</option>
+              <option value="YouTube Watch Time">Watch Time</option>
+            </optgroup>
+            <optgroup label="Telegram">
+              <option value="Telegram 1K Members – ₹299">1K Members – ₹299</option>
+              <option value="Telegram Post Views">Post Views</option>
+            </optgroup>
+          </select>
+          <br><br>
+          <button type="button" onclick="sendWhatsApp()">Order via WhatsApp</button>
+        </form>
       </div>
     </div>
 
-    <!-- DROP-DOWN ORDER -->
-    <div class="section fade-up center">
-      <h2>Order Your Service</h2>
-      <p>Select your service from below:</p>
-
-      <form id="serviceForm">
-        <select id="serviceSelect">
-          <option value="" disabled selected>Select Service</option>
-          <optgroup label="Instagram">
-            <option value="Instagram 1K Followers – ₹199">1K Followers – ₹199</option>
-            <option value="Instagram 5K Followers – ₹899">5K Followers – ₹899</option>
-            <option value="Instagram Likes / Views">Likes / Views</option>
-          </optgroup>
-          <optgroup label="YouTube">
-            <option value="YouTube 1K Subscribers – ₹499">1K Subscribers – ₹499</option>
-            <option value="YouTube 1K Views – ₹149">1K Views – ₹149</option>
-            <option value="YouTube Watch Time">Watch Time</option>
-          </optgroup>
-          <optgroup label="Telegram">
-            <option value="Telegram 1K Members – ₹299">1K Members – ₹299</option>
-            <option value="Telegram Post Views">Post Views</option>
-          </optgroup>
-        </select>
-        <br><br>
-        <button type="button" onclick="sendWhatsApp()">Order via WhatsApp</button>
-      </form>
+    <!-- CUSTOMER REVIEWS -->
+    <div class="section fade-up">
+      <h2>Customer Reviews</h2>
+      <div class="reviews">
+        <div class="review-card">
+          <img src="https://via.placeholder.com/80" alt="Customer Photo">
+          <h4>Rohit Sharma</h4>
+          <p>Great service! Got my Instagram followers in just a few hours.</p>
+        </div>
+        <div class="review-card">
+          <img src="https://via.placeholder.com/80" alt="Customer Photo">
+          <h4>Neha Patil</h4>
+          <p>Reliable and fast delivery. Highly recommend SMM SHAMBHO!</p>
+        </div>
+        <div class="review-card">
+          <img src="https://via.placeholder.com/80" alt="Customer Photo">
+          <h4>Ajay Singh</h4>
+          <p>YouTube subscribers added exactly as promised. Excellent support!</p>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -118,7 +106,6 @@
     © 2026 SMM SHAMBHO | All Rights Reserved
   </footer>
 
-  <!-- JS -->
   <script>
     function sendWhatsApp() {
       var service = document.getElementById("serviceSelect").value;
