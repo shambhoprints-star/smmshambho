@@ -19,12 +19,13 @@ header h1{margin:0;font-size:22px;}
 .hero{background:linear-gradient(135deg,#2563eb,#1e40af);color:#fff;padding:50px 20px;text-align:center;position:relative;overflow:hidden;}
 .hero h2{font-size:28px;margin-bottom:15px;animation:fadeIn 1.5s;}
 .hero p{max-width:700px;margin:auto;margin-bottom:25px;animation:fadeIn 2s;}
-.hero img{width:250px;position:absolute;right:20px;bottom:10px;opacity:0.2;animation:floatMobile 4s ease-in-out infinite;}
-.notification{position:absolute;width:18px;height:18px;background:#ff3b30;border-radius:50%;animation:floatNotif 3s infinite;opacity:0.8;}
+.hero img{width:220px;position:absolute;right:20px;bottom:10px;opacity:0.25;animation:floatMobile 4s ease-in-out infinite;}
+
+.floating-sketch{position:absolute;width:40px;height:40px;opacity:0.7;animation:floatNotif 4s infinite;}
 
 @keyframes floatMobile{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
 @keyframes fadeIn{0%{opacity:0;}100%{opacity:1;}}
-@keyframes floatNotif{0%{transform:translateY(0) translateX(0);}50%{transform:translateY(-20px) translateX(5px);}100%{transform:translateY(0) translateX(0);}}
+@keyframes floatNotif{0%{transform:translateY(0) translateX(0);}50%{transform:translateY(-15px) translateX(5px);}100%{transform:translateY(0) translateX(0);}}
 
 .dashboard{background:#fff;padding:30px 20px;border-radius:10px;max-width:1000px;margin:20px auto;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
 .dashboard h3{text-align:center;margin-bottom:20px;}
@@ -77,8 +78,9 @@ footer a{color:#93c5fd;text-decoration:none;}
 .modal-content button.register{background:#22c55e;margin-top:10px;}
 
 @media(max-width:768px){
-.hero img{position:static;width:200px;margin-top:20px;opacity:0.25;}
+.hero img{position:static;width:180px;margin-top:20px;opacity:0.25;}
 .cards{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));}
+.floating-sketch{display:none;}
 }
 </style>
 </head>
@@ -101,12 +103,14 @@ footer a{color:#93c5fd;text-decoration:none;}
 <section class="hero">
 <h2>Boost Your Social Media Fast!</h2>
 <p>Get followers, likes, views & more for Instagram, Facebook, YouTube, Telegram & Twitter instantly.</p>
-<img src="https://i.ibb.co/9y0kXyq/mobile-social-sketch.png" alt="Mobile & Social Sketch">
-<!-- Floating notifications -->
-<div class="notification" style="top:50px; left:30px;"></div>
-<div class="notification" style="top:100px; left:120px;"></div>
-<div class="notification" style="top:80px; left:200px;"></div>
-<div class="notification" style="top:30px; left:250px;"></div>
+<!-- Main hero image base64 embedded -->
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAA..." alt="Mobile & Social Sketch">
+
+<!-- Floating mini sketches -->
+<img class="floating-sketch" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAbCAYAAA..." style="top:50px; left:30px;">
+<img class="floating-sketch" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAbCAYAAA..." style="top:100px; left:120px;">
+<img class="floating-sketch" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAbCAYAAA..." style="top:80px; left:200px;">
+<img class="floating-sketch" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAbCAYAAA..." style="top:30px; left:250px;">
 </section>
 
 <section class="dashboard">
@@ -119,6 +123,7 @@ footer a{color:#93c5fd;text-decoration:none;}
 <th>Status</th>
 <th>Date</th>
 </tr>
+<!-- Empty for manual update -->
 </table>
 </section>
 
