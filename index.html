@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>SMM Shambho | Free SMM Panel</title>
+<title>SMM Shambho | Fast & Trusted SMM Panel</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#f4f6f9;color:#333;}
-header{background:#0f172a;color:#fff;padding:15px 20px;position:relative;}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f6f9;color:#333;overflow-x:hidden;}
+header{background:#0f172a;color:#fff;padding:15px 20px;position:relative;z-index:10;}
 header h1{margin:0;font-size:22px;}
 .dropdown{position:absolute;right:20px;top:15px;}
 .dropbtn{background:#2563eb;color:#fff;border:none;padding:10px 14px;font-size:16px;border-radius:4px;cursor:pointer;}
@@ -17,32 +16,47 @@ header h1{margin:0;font-size:22px;}
 .dropdown-content a:hover{background:#f1f1f1;}
 .dropdown:hover .dropdown-content{display:block;}
 
-.hero{background:linear-gradient(135deg,#2563eb,#1e40af);color:#fff;padding:50px 20px;text-align:center;}
-.hero h2{font-size:28px;}
-.hero p{max-width:700px;margin:auto;}
-.hero button{margin-top:20px;background:#22c55e;border:none;padding:14px 26px;font-size:18px;border-radius:6px;color:#fff;cursor:pointer;}
+.hero{background:linear-gradient(135deg,#2563eb,#1e40af);color:#fff;padding:50px 20px;text-align:center;position:relative;overflow:hidden;}
+.hero h2{font-size:28px;margin-bottom:15px;animation:fadeIn 1.5s;}
+.hero p{max-width:700px;margin:auto;margin-bottom:25px;animation:fadeIn 2s;}
+.hero img{width:250px;position:absolute;right:20px;bottom:10px;opacity:0.2;animation:floatMobile 4s ease-in-out infinite;}
+.notification{position:absolute;width:18px;height:18px;background:#ff3b30;border-radius:50%;animation:floatNotif 3s infinite;opacity:0.8;}
 
-.services{padding:40px 20px;text-align:center;}
-.services h3{font-size:26px;}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:1200px;margin:auto;}
-.card{background:#fff;padding:25px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
-.card i{font-size:36px;color:#2563eb;}
-.card h4{margin:15px 0 5px;}
-.card p{font-size:14px;color:#555;}
-.card span{font-weight:bold;color:#2563eb;}
+@keyframes floatMobile{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+@keyframes fadeIn{0%{opacity:0;}100%{opacity:1;}}
+@keyframes floatNotif{0%{transform:translateY(0) translateX(0);}50%{transform:translateY(-20px) translateX(5px);}100%{transform:translateY(0) translateX(0);}}
 
-.order{background:#fff;padding:40px 20px;text-align:center;border-radius:10px;max-width:700px;margin:30px auto;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
-.order input, .order select{width:90%;padding:12px;margin:10px 0;border-radius:6px;border:1px solid #ccc;font-size:16px;}
-.order button{background:#2563eb;border:none;padding:14px 30px;font-size:18px;color:#fff;border-radius:6px;cursor:pointer;margin-top:10px;}
-
-.dashboard{background:#fff;padding:30px 20px;border-radius:10px;max-width:1000px;margin:30px auto;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+.dashboard{background:#fff;padding:30px 20px;border-radius:10px;max-width:1000px;margin:20px auto;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
 .dashboard h3{text-align:center;margin-bottom:20px;}
 .dashboard table{width:100%;border-collapse:collapse;}
 .dashboard th, .dashboard td{border:1px solid #ccc;padding:10px;text-align:center;}
 .dashboard th{background:#2563eb;color:#fff;}
 
-.social-icons{display:flex;justify-content:center;gap:12px;margin:30px 0;}
-.social-icons a{width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:#fff;font-size:20px;}
+.services{padding:40px 20px;text-align:center;position:relative;}
+.services h3{font-size:26px;margin-bottom:25px;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:1200px;margin:auto;}
+.card{background:#fff;padding:25px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);position:relative;overflow:hidden;transition:transform 0.3s;}
+.card:hover{transform:translateY(-8px);}
+.card i{font-size:36px;color:#2563eb;transition:transform 0.3s;}
+.card:hover i{transform:scale(1.2);}
+.card h4{margin:15px 0 5px;}
+.card p{font-size:14px;color:#555;}
+.card span{font-weight:bold;color:#2563eb;}
+.card .growth-bar{position:absolute;bottom:0;left:0;height:5px;background:#22c55e;width:0%;animation:growBar 3s ease-in-out infinite;}
+
+@keyframes growBar{0%{width:0;}50%{width:70%;}100%{width:0;}}
+
+.card::after{content:'⬆';position:absolute;top:10px;right:10px;font-size:24px;color:#22c55e;animation:arrowUp 1s ease-in-out infinite;}
+@keyframes arrowUp{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+
+.order{background:#fff;padding:40px 20px;text-align:center;border-radius:10px;max-width:700px;margin:30px auto;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+.order input, .order select{width:90%;padding:12px;margin:10px 0;border-radius:6px;border:1px solid #ccc;font-size:16px;}
+.order button{background:#2563eb;border:none;padding:14px 30px;font-size:18px;color:#fff;border-radius:6px;cursor:pointer;margin-top:10px;transition:background 0.3s;}
+.order button:hover{background:#1e40af;}
+
+.social-icons{display:flex;justify-content:center;gap:12px;margin:30px 0;position:relative;z-index:5;}
+.social-icons a{width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:#fff;font-size:20px;transition:transform 0.3s;}
+.social-icons a:hover{transform:translateY(-5px) scale(1.1);}
 .instagram{background:#E1306C;}
 .facebook{background:#1877F2;}
 .youtube{background:#FF0000;}
@@ -51,9 +65,9 @@ header h1{margin:0;font-size:22px;}
 footer{background:#0f172a;color:#ccc;text-align:center;padding:20px;font-size:14px;}
 footer a{color:#93c5fd;text-decoration:none;}
 
-.whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 10px rgba(0,0,0,0.3);z-index:100;}
+.whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 10px rgba(0,0,0,0.3);z-index:100;animation:bounce 2s infinite;}
+@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
 
-/* LOGIN MODAL */
 .modal{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;overflow:auto;background:rgba(0,0,0,0.5);}
 .modal-content{background:#fff;margin:10% auto;padding:20px;border-radius:10px;max-width:400px;position:relative;}
 .modal-content h3{text-align:center;}
@@ -61,6 +75,11 @@ footer a{color:#93c5fd;text-decoration:none;}
 .modal-content input{width:90%;padding:10px;margin:10px 0;border-radius:6px;border:1px solid #ccc;}
 .modal-content button{width:95%;padding:12px;background:#2563eb;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:10px;}
 .modal-content button.register{background:#22c55e;margin-top:10px;}
+
+@media(max-width:768px){
+.hero img{position:static;width:200px;margin-top:20px;opacity:0.25;}
+.cards{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));}
+}
 </style>
 </head>
 <body>
@@ -82,17 +101,35 @@ footer a{color:#93c5fd;text-decoration:none;}
 <section class="hero">
 <h2>Boost Your Social Media Fast!</h2>
 <p>Get followers, likes, views & more for Instagram, Facebook, YouTube, Telegram & Twitter instantly.</p>
-<button onclick="document.getElementById('order-form').scrollIntoView({behavior:'smooth'})">Start Order</button>
+<img src="https://i.ibb.co/9y0kXyq/mobile-social-sketch.png" alt="Mobile & Social Sketch">
+<!-- Floating notifications -->
+<div class="notification" style="top:50px; left:30px;"></div>
+<div class="notification" style="top:100px; left:120px;"></div>
+<div class="notification" style="top:80px; left:200px;"></div>
+<div class="notification" style="top:30px; left:250px;"></div>
+</section>
+
+<section class="dashboard">
+<h3>Your Orders</h3>
+<table id="orderTable">
+<tr>
+<th>Service</th>
+<th>Username/Link</th>
+<th>Quantity</th>
+<th>Status</th>
+<th>Date</th>
+</tr>
+</table>
 </section>
 
 <section id="services" class="services">
 <h3>Our Services</h3>
 <div class="cards">
-<div class="card"><i class="fab fa-instagram"></i><h4>Instagram</h4><p>Followers, Likes, Reels Views, Story Views<br><span>₹50–₹120 / 1000</span></p></div>
-<div class="card"><i class="fab fa-facebook"></i><h4>Facebook</h4><p>Page Likes, Post Likes, Shares, Followers<br><span>₹30–₹80 / 1000</span></p></div>
-<div class="card"><i class="fab fa-youtube"></i><h4>YouTube</h4><p>Subscribers, Views, Likes, Watch Time<br><span>₹50–₹150 / 1000</span></p></div>
-<div class="card"><i class="fab fa-telegram"></i><h4>Telegram</h4><p>Members, Post Views, Reactions<br><span>₹30–₹70 / 1000</span></p></div>
-<div class="card"><i class="fab fa-twitter"></i><h4>Twitter/X</h4><p>Followers, Likes, Retweets<br><span>₹30–₹100 / 1000</span></p></div>
+<div class="card"><i class="fab fa-instagram"></i><h4>Instagram</h4><p>Followers, Likes, Reels Views, Story Views<br><span>₹50–₹120 / 1000</span></p><div class="growth-bar"></div></div>
+<div class="card"><i class="fab fa-facebook"></i><h4>Facebook</h4><p>Page Likes, Post Likes, Shares, Followers<br><span>₹30–₹80 / 1000</span></p><div class="growth-bar"></div></div>
+<div class="card"><i class="fab fa-youtube"></i><h4>YouTube</h4><p>Subscribers, Views, Likes, Watch Time<br><span>₹50–₹150 / 1000</span></p><div class="growth-bar"></div></div>
+<div class="card"><i class="fab fa-telegram"></i><h4>Telegram</h4><p>Members, Post Views, Reactions<br><span>₹30–₹70 / 1000</span></p><div class="growth-bar"></div></div>
+<div class="card"><i class="fab fa-twitter"></i><h4>Twitter/X</h4><p>Followers, Likes, Retweets<br><span>₹30–₹100 / 1000</span></p><div class="growth-bar"></div></div>
 </div>
 </section>
 
@@ -117,13 +154,6 @@ footer a{color:#93c5fd;text-decoration:none;}
 <input type="number" id="quantity" placeholder="Quantity" required>
 <button type="submit">Send Order via WhatsApp</button>
 </form>
-</section>
-
-<section class="dashboard">
-<h3>Your Orders</h3>
-<table id="orderTable">
-<tr><th>Service</th><th>Username/Link</th><th>Quantity</th><th>Status</th><th>Date</th></tr>
-</table>
 </section>
 
 <div class="social-icons">
@@ -156,14 +186,12 @@ footer a{color:#93c5fd;text-decoration:none;}
 function openLogin(){document.getElementById('loginModal').style.display='block';}
 function closeLogin(){document.getElementById('loginModal').style.display='none';}
 
-// Local storage user system
 function registerUser(){
 let user=document.getElementById('loginUser').value;
 let pass=document.getElementById('loginPass').value;
-if(!user || !pass){alert('Fill both fields'); return;}
+if(!user||!pass){alert('Fill both fields'); return;}
 if(localStorage.getItem('user_'+user)){alert('User already exists'); return;}
 localStorage.setItem('user_'+user,pass);
-localStorage.setItem('orders_'+user,JSON.stringify([]));
 alert('Registered! You can login now'); closeLogin();
 }
 
@@ -171,41 +199,17 @@ function login(){
 let user=document.getElementById('loginUser').value;
 let pass=document.getElementById('loginPass').value;
 if(localStorage.getItem('user_'+user)==pass){
-alert('Login Successful'); closeLogin(); localStorage.setItem('currentUser',user); loadOrders();
+alert('Login Successful'); closeLogin(); localStorage.setItem('currentUser',user);
 }else{alert('Invalid credentials');}
 }
 
-// Dashboard orders
-function loadOrders(){
-let user=localStorage.getItem('currentUser'); 
-let table=document.getElementById('orderTable');
-table.innerHTML='<tr><th>Service</th><th>Username/Link</th><th>Quantity</th><th>Status</th><th>Date</th></tr>';
-let orders=JSON.parse(localStorage.getItem('orders_'+user)||'[]');
-orders.forEach(o=>{
-let row=table.insertRow();
-row.insertCell(0).innerText=o.service;
-row.insertCell(1).innerText=o.username;
-row.insertCell(2).innerText=o.qty;
-row.insertCell(3).innerText=o.status;
-row.insertCell(4).innerText=o.date;
-});
-}
-
-// WhatsApp Auto-message + store order
 function sendOrder(e){
 e.preventDefault();
-let service=document.getElementById('service').value;
-let userlink=document.getElementById('username').value;
-let qty=document.getElementById('quantity').value;
-let currentUser=localStorage.getItem('currentUser');
-if(!currentUser){alert('Please login first'); return;}
-let msg="Hello, I want to place an order:%0AService: "+service+"%0AUsername/Link: "+userlink+"%0AQuantity: "+qty;
+var service=document.getElementById('service').value;
+var userlink=document.getElementById('username').value;
+var qty=document.getElementById('quantity').value;
+var msg="Hello, I want to place an order:%0AService: "+service+"%0AUsername/Link: "+userlink+"%0AQuantity: "+qty;
 window.open("https://wa.me/917559404077?text="+msg,"_blank");
-// Save order locally
-let orders=JSON.parse(localStorage.getItem('orders_'+currentUser)||'[]');
-orders.push({service:service,username:userlink,qty:qty,status:'Pending',date:new Date().toLocaleDateString()});
-localStorage.setItem('orders_'+currentUser,JSON.stringify(orders));
-loadOrders();
 }
 </script>
 
