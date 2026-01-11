@@ -1,249 +1,124 @@
 <!DOCTYPE html>
-<html lang="mr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>SMM Shambho – Premium Panel</title>
+
+<!-- SEO -->
+<title>SMM Shambho | Fast & Trusted SMM Services India</title>
+<meta name="description" content="Affordable SMM services for Instagram, Facebook, YouTube & Telegram. Fast delivery. Trusted Indian SMM Panel.">
+<meta name="keywords" content="SMM Panel India, Instagram followers, YouTube views, Telegram members, cheap SMM services">
+<meta name="author" content="SMM Shambho">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 :root{
---bg:#020617;
+--bg:#0b0f1a;
 --glass:rgba(255,255,255,.08);
---border:rgba(255,255,255,.18);
+--border:rgba(255,255,255,.15);
 --neon:#38bdf8;
+--text:#e5e7eb;
 }
-*{box-sizing:border-box}
-body{
-margin:0;
-font-family:Segoe UI,Arial;
-background:radial-gradient(circle at top,#020617,#000);
-color:#fff;
-}
+body{margin:0;font-family:Arial;background:var(--bg);color:var(--text)}
+header{position:sticky;top:0;background:rgba(0,0,0,.6);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:12px 20px}
+nav a{color:#fff;text-decoration:none;margin-left:14px;font-size:14px}
+.logo{color:var(--neon);font-weight:bold}
 
-/* HEADER */
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:16px 20px;
-backdrop-filter:blur(16px);
-background:var(--glass);
-border-bottom:1px solid var(--border);
-position:sticky;
-top:0;
-z-index:9;
-}
-header h1{
-margin:0;
-font-size:20px;
-color:var(--neon);
-text-shadow:0 0 10px var(--neon);
-}
-.lang-btn{
-background:none;
-border:1px solid var(--border);
-color:#fff;
-padding:6px 14px;
-border-radius:20px;
-cursor:pointer;
-}
+.section{padding:60px 20px}
+.hero{text-align:center}
+.hero h1{text-shadow:0 0 15px rgba(56,189,248,.6)}
+.glass{background:var(--glass);border:1px solid var(--border);border-radius:14px;padding:20px;backdrop-filter:blur(14px)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.btn{display:inline-block;margin-top:15px;padding:10px 18px;border-radius:30px;
+background:linear-gradient(90deg,#38bdf8,#0ea5e9);color:#000;font-weight:bold;text-decoration:none}
 
-/* HERO */
-.hero{
-padding:70px 20px 90px;
-text-align:center;
-}
-.hero h2{
-font-size:32px;
-margin-bottom:10px;
-}
-.hero p{
-color:#cbd5f5;
-max-width:720px;
-margin:auto;
-}
-
-/* GLASS CARD */
-.glass{
-background:var(--glass);
-border:1px solid var(--border);
-backdrop-filter:blur(20px);
-border-radius:18px;
-}
-
-/* SERVICES */
-.services{
-padding:50px 20px;
-}
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-max-width:1100px;
-margin:auto;
-}
-.card{
-padding:22px;
-text-align:center;
-transition:.4s;
-box-shadow:0 0 25px rgba(56,189,248,.15);
-}
-.card:hover{
-transform:translateY(-8px) scale(1.03);
-box-shadow:0 0 45px rgba(56,189,248,.45);
-}
-.card span{
-font-size:30px;
-display:block;
-margin-bottom:8px;
-}
-.card b{color:var(--neon)}
-
-/* ORDER */
-.order{
-padding:50px 20px;
-text-align:center;
-}
-.order input,.order select{
-width:90%;
-max-width:420px;
-padding:14px;
-margin:10px 0;
-border-radius:10px;
-background:var(--glass);
-border:1px solid var(--border);
-color:#fff;
-}
-.order button{
-padding:14px 40px;
-border:none;
-border-radius:30px;
-background:linear-gradient(135deg,#38bdf8,#6366f1);
-color:#000;
-font-size:16px;
-font-weight:700;
-cursor:pointer;
-box-shadow:0 0 25px var(--neon);
-}
-
-/* ADMIN */
-.admin{
-padding:40px 20px;
-max-width:900px;
-margin:auto;
-}
-.admin h3{text-align:center}
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:20px;
-}
-th,td{
-padding:10px;
-border-bottom:1px solid var(--border);
-font-size:14px;
-text-align:left;
-}
-
-/* WHATSAPP */
-.whatsapp{
-position:fixed;
-right:18px;
-bottom:18px;
-width:56px;
-height:56px;
-border-radius:50%;
-background:#22c55e;
-color:#000;
-font-size:30px;
-display:flex;
-align-items:center;
-justify-content:center;
-text-decoration:none;
-box-shadow:0 0 30px #22c55e;
-}
-
-/* FOOTER */
-footer{
-text-align:center;
-padding:20px;
-font-size:13px;
-color:#9ca3af;
-}
+footer{background:#020617;padding:30px 20px;border-top:1px solid var(--border);font-size:13px}
+.whatsapp{position:fixed;right:20px;bottom:20px;width:55px;height:55px;border-radius:50%;
+background:#25D366;color:#fff;font-size:26px;display:flex;align-items:center;justify-content:center;text-decoration:none}
+.toggle{cursor:pointer;border:1px solid var(--border);padding:6px 12px;border-radius:20px;font-size:12px}
 </style>
+
+<script>
+function setLang(lang){
+document.querySelectorAll('[data-en]').forEach(el=>{
+el.innerText = el.getAttribute('data-'+lang);
+});
+}
+</script>
 </head>
 
-<body>
+<body onload="setLang('en')">
 
 <header>
-<h1>SMM SHAMBHO</h1>
-<button class="lang-btn" onclick="toggleLang()">मराठी / EN</button>
+<nav>
+<div class="logo">SMM SHAMBHO</div>
+<div>
+<span class="toggle" onclick="setLang('en')">EN</span>
+<span class="toggle" onclick="setLang('mr')">मराठी</span>
+<a href="#services">Services</a>
+<a href="#rates">Rates</a>
+<a href="#contact">Contact</a>
+<a href="https://t.me/Shambhodigitalservicesbot" target="_blank">Telegram</a>
+</div>
+</nav>
 </header>
 
-<section class="hero glass">
-<h2 id="t1">Premium Social Media Growth</h2>
-<p id="t2">Fast • Secure • Manual Quality Delivery</p>
+<section class="section hero">
+<h1 data-en="Fast & Trusted SMM Services"
+    data-mr="जलद आणि विश्वासार्ह SMM सेवा"></h1>
+
+<p data-en="Boost your social media growth with affordable and reliable SMM services."
+   data-mr="स्वस्त आणि विश्वासार्ह SMM सेवांसह तुमचे सोशल मीडिया वाढवा."></p>
+
+<a class="btn" href="https://wa.me/917559404077">Order on WhatsApp</a>
 </section>
 
-<section class="services">
-<div class="cards">
-<div class="card glass"><span>📸</span><b>Instagram Followers</b><br>₹50 / 1K</div>
-<div class="card glass"><span>❤️</span><b>Instagram Likes</b><br>₹30 / 1K</div>
-<div class="card glass"><span>▶️</span><b>YouTube Views</b><br>₹60 / 1K</div>
-<div class="card glass"><span>💬</span><b>Telegram Members</b><br>₹45 / 1K</div>
+<section class="section" id="services">
+<h2 data-en="Our Services" data-mr="आमच्या सेवा"></h2>
+<div class="grid">
+<div class="glass">📸 Instagram Followers / Likes / Views</div>
+<div class="glass">📘 Facebook Page Likes / Post Likes</div>
+<div class="glass">▶️ YouTube Views / Subscribers / Likes</div>
+<div class="glass">💬 Telegram Members / Post Views</div>
+<div class="glass">🐦 Twitter Followers / Likes</div>
+<div class="glass">🎵 Spotify Plays / Followers</div>
+<div class="glass">📱 App Installs (Android)</div>
+<div class="glass">🌐 Website Traffic (India / Global)</div>
 </div>
 </section>
 
-<section class="order glass">
-<h3 id="t3">Place Order</h3>
-<form onsubmit="addOrder(event)">
-<select id="service">
-<option>Instagram Followers</option>
-<option>Instagram Likes</option>
-<option>YouTube Views</option>
-<option>Telegram Members</option>
-</select>
-<input id="link" placeholder="Username / Link" required>
-<input id="qty" type="number" placeholder="Quantity" required>
-<button>Submit</button>
-</form>
+<section class="section" id="rates">
+<h2 data-en="Market Rates" data-mr="मार्केट दर"></h2>
+<div class="grid">
+<div class="glass">Instagram Followers<br><b>₹50 / 1K</b></div>
+<div class="glass">Instagram Likes<br><b>₹30 / 1K</b></div>
+<div class="glass">YouTube Views<br><b>₹60 / 1K</b></div>
+<div class="glass">Telegram Members<br><b>₹45 / 1K</b></div>
+<div class="glass">Website Traffic<br><b>₹70 / 1K</b></div>
+</div>
+<p style="font-size:12px;opacity:.7" data-en="Rates may change based on quality."
+data-mr="सेवेच्या गुणवत्तेनुसार दर बदलू शकतात."></p>
 </section>
 
-<section class="admin glass">
-<h3>Admin Dashboard (Manual)</h3>
-<table>
-<thead>
-<tr><th>Service</th><th>Link</th><th>Qty</th></tr>
-</thead>
-<tbody id="orders"></tbody>
-</table>
+<section class="section" id="contact">
+<div class="glass">
+<h3 data-en="Contact & Orders" data-mr="संपर्क आणि ऑर्डर"></h3>
+<p>📱 WhatsApp: 7559404077</p>
+<p>📨 Telegram: Shambho Digital Services Bot</p>
+</div>
 </section>
 
 <footer>
-© 2026 smmshambho.in – Ultimate Premium Panel
+<p><b>Terms & Conditions</b><br>
+All services are promotional only. No affiliation with any social media platform. No refund after order started.</p>
+<p><b>Disclaimer</b><br>
+We are not responsible for account suspension or drops.</p>
+<p><b>Privacy Policy</b><br>
+No personal data is stored.</p>
+<p>© 2026 SMM Shambho</p>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/917559404077" target="_blank">💬</a>
-
-<script>
-let mr=true;
-function toggleLang(){
-mr=!mr;
-document.getElementById("t1").innerText=
-mr?"Premium Social Media Growth":"सोशल मीडिया वाढ सेवा";
-document.getElementById("t2").innerText=
-mr?"Fast • Secure • Manual Quality Delivery":"वेगवान • सुरक्षित • मॅन्युअल सेवा";
-document.getElementById("t3").innerText=
-mr?"Place Order":"ऑर्डर द्या";
-}
-
-function addOrder(e){
-e.preventDefault();
-let s=service.value,l=link.value,q=qty.value;
-orders.innerHTML+=`<tr><td>${s}</td><td>${l}</td><td>${q}</td></tr>`;
-window.open(`https://wa.me/917559404077?text=Service:${s}%0ALink:${l}%0AQty:${q}`);
-}
-</script>
+<a class="whatsapp" href="https://wa.me/917559404077">💬</a>
 
 </body>
 </html>
