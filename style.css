@@ -60,19 +60,11 @@ body {
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: 0.3s;
 }
 
-/* WHY LIST */
-.why {
-  list-style: none;
-  padding: 0;
-  max-width: 500px;
-  margin: auto;
-}
-
-.why li {
-  padding: 8px 0;
-  font-size: 16px;
+.card:hover {
+  transform: translateY(-6px);
 }
 
 /* BUTTONS */
@@ -84,6 +76,11 @@ body {
   border-radius: 30px;
   text-decoration: none;
   font-weight: bold;
+}
+
+.main-btn:hover,
+.whatsapp-btn:hover {
+  opacity: 0.85;
 }
 
 /* FLOATING WHATSAPP */
