@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
+/* ===== General ===== */
 body{margin:0;font-family:Arial,sans-serif;background:#f4f6f9;color:#333;overflow-x:hidden;}
 header{background:#0f172a;color:#fff;padding:15px 20px;position:relative;z-index:10;}
 header h1{margin:0;font-size:22px;}
@@ -16,45 +17,41 @@ header h1{margin:0;font-size:22px;}
 .dropdown-content a:hover{background:#f1f1f1;}
 .dropdown:hover .dropdown-content{display:block;}
 
-.hero{background:linear-gradient(135deg,#2563eb,#1e40af);color:#fff;padding:50px 20px;text-align:center;position:relative;overflow:hidden;}
+/* ===== Hero ===== */
+.hero{position:relative;padding:50px 20px;text-align:center;color:#fff;overflow:hidden;animation:gradientShift 15s ease infinite;}
+@keyframes gradientShift{0%{background:linear-gradient(135deg,#2563eb,#1e40af);}50%{background:linear-gradient(135deg,#1e40af,#2563eb);}100%{background:linear-gradient(135deg,#2563eb,#1e40af);}}
 .hero h2{font-size:28px;margin-bottom:15px;animation:fadeIn 1.5s;}
 .hero p{max-width:700px;margin:auto;margin-bottom:25px;animation:fadeIn 2s;}
-.hero img{width:220px;position:absolute;right:20px;bottom:10px;opacity:0.25;animation:floatMobile 4s ease-in-out infinite;}
+.hero img.main-img{width:220px;position:absolute;right:20px;bottom:10px;opacity:0.25;}
 
-.floating-sketch{position:absolute;width:40px;height:40px;opacity:0.7;animation:floatNotif 4s infinite;}
-
-@keyframes floatMobile{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+/* ===== Floating sketches ===== */
+.floating-sketch{position:absolute;width:40px;height:40px;opacity:0.7;animation:floatRandom 6s ease-in-out infinite;transform-origin:center;}
 @keyframes fadeIn{0%{opacity:0;}100%{opacity:1;}}
-@keyframes floatNotif{0%{transform:translateY(0) translateX(0);}50%{transform:translateY(-15px) translateX(5px);}100%{transform:translateY(0) translateX(0);}}
+@keyframes floatRandom{0%{transform:translate(0,0) rotate(0deg);}25%{transform:translate(5px,-10px) rotate(10deg);}50%{transform:translate(-5px,-15px) rotate(-10deg);}75%{transform:translate(8px,-5px) rotate(5deg);}100%{transform:translate(0,0) rotate(0deg);}}
 
-.dashboard{background:#fff;padding:30px 20px;border-radius:10px;max-width:1000px;margin:20px auto;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
-.dashboard h3{text-align:center;margin-bottom:20px;}
-.dashboard table{width:100%;border-collapse:collapse;}
-.dashboard th, .dashboard td{border:1px solid #ccc;padding:10px;text-align:center;}
-.dashboard th{background:#2563eb;color:#fff;}
-
+/* ===== Services ===== */
 .services{padding:40px 20px;text-align:center;position:relative;}
 .services h3{font-size:26px;margin-bottom:25px;}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:1200px;margin:auto;}
-.card{background:#fff;padding:25px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);position:relative;overflow:hidden;transition:transform 0.3s;}
-.card:hover{transform:translateY(-8px);}
+.card{background:#fff;padding:25px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);position:relative;overflow:hidden;transition:transform 0.3s, box-shadow 0.3s;}
+.card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 8px 20px rgba(0,0,0,0.2);}
 .card i{font-size:36px;color:#2563eb;transition:transform 0.3s;}
 .card:hover i{transform:scale(1.2);}
 .card h4{margin:15px 0 5px;}
 .card p{font-size:14px;color:#555;}
 .card span{font-weight:bold;color:#2563eb;}
 .card .growth-bar{position:absolute;bottom:0;left:0;height:5px;background:#22c55e;width:0%;animation:growBar 3s ease-in-out infinite;}
-
 @keyframes growBar{0%{width:0;}50%{width:70%;}100%{width:0;}}
-
 .card::after{content:'⬆';position:absolute;top:10px;right:10px;font-size:24px;color:#22c55e;animation:arrowUp 1s ease-in-out infinite;}
 @keyframes arrowUp{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
 
+/* ===== Order Form ===== */
 .order{background:#fff;padding:40px 20px;text-align:center;border-radius:10px;max-width:700px;margin:30px auto;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
 .order input, .order select{width:90%;padding:12px;margin:10px 0;border-radius:6px;border:1px solid #ccc;font-size:16px;}
 .order button{background:#2563eb;border:none;padding:14px 30px;font-size:18px;color:#fff;border-radius:6px;cursor:pointer;margin-top:10px;transition:background 0.3s;}
 .order button:hover{background:#1e40af;}
 
+/* ===== Social Icons ===== */
 .social-icons{display:flex;justify-content:center;gap:12px;margin:30px 0;position:relative;z-index:5;}
 .social-icons a{width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:#fff;font-size:20px;transition:transform 0.3s;}
 .social-icons a:hover{transform:translateY(-5px) scale(1.1);}
@@ -62,13 +59,20 @@ header h1{margin:0;font-size:22px;}
 .facebook{background:#1877F2;}
 .youtube{background:#FF0000;}
 .telegram{background:#0088cc;}
+.linkedin{background:#0A66C2;}
+.pinterest{background:#E60023;}
+.tiktok{background:#000000;}
+.spotify{background:#1DB954;}
 
+/* ===== Footer ===== */
 footer{background:#0f172a;color:#ccc;text-align:center;padding:20px;font-size:14px;}
 footer a{color:#93c5fd;text-decoration:none;}
 
+/* ===== WhatsApp Floating ===== */
 .whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 10px rgba(0,0,0,0.3);z-index:100;animation:bounce 2s infinite;}
 @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
 
+/* ===== Login Modal ===== */
 .modal{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;overflow:auto;background:rgba(0,0,0,0.5);}
 .modal-content{background:#fff;margin:10% auto;padding:20px;border-radius:10px;max-width:400px;position:relative;}
 .modal-content h3{text-align:center;}
@@ -78,7 +82,7 @@ footer a{color:#93c5fd;text-decoration:none;}
 .modal-content button.register{background:#22c55e;margin-top:10px;}
 
 @media(max-width:768px){
-.hero img{position:static;width:180px;margin-top:20px;opacity:0.25;}
+.hero img.main-img{position:static;width:180px;margin-top:20px;opacity:0.25;}
 .cards{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));}
 .floating-sketch{display:none;}
 }
@@ -102,39 +106,40 @@ footer a{color:#93c5fd;text-decoration:none;}
 
 <section class="hero">
 <h2>Boost Your Social Media Fast!</h2>
-<p>Get followers, likes, views & more for Instagram, Facebook, YouTube, Telegram & Twitter instantly.</p>
-<!-- Main hero image base64 embedded -->
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAA..." alt="Mobile & Social Sketch">
-
-<!-- Floating mini sketches -->
+<p>Get followers, likes, views & more for Instagram, Facebook, YouTube, Telegram, Twitter & other platforms instantly.</p>
+<img class="main-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAA..." alt="Mobile Sketch">
+<!-- Floating sketches -->
 <img class="floating-sketch" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAbCAYAAA..." style="top:50px; left:30px;">
 <img class="floating-sketch" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAbCAYAAA..." style="top:100px; left:120px;">
 <img class="floating-sketch" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAbCAYAAA..." style="top:80px; left:200px;">
 <img class="floating-sketch" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAbCAYAAA..." style="top:30px; left:250px;">
 </section>
 
-<section class="dashboard">
-<h3>Your Orders</h3>
-<table id="orderTable">
-<tr>
-<th>Service</th>
-<th>Username/Link</th>
-<th>Quantity</th>
-<th>Status</th>
-<th>Date</th>
-</tr>
-<!-- Empty for manual update -->
-</table>
-</section>
-
 <section id="services" class="services">
 <h3>Our Services</h3>
 <div class="cards">
-<div class="card"><i class="fab fa-instagram"></i><h4>Instagram</h4><p>Followers, Likes, Reels Views, Story Views<br><span>₹50–₹120 / 1000</span></p><div class="growth-bar"></div></div>
-<div class="card"><i class="fab fa-facebook"></i><h4>Facebook</h4><p>Page Likes, Post Likes, Shares, Followers<br><span>₹30–₹80 / 1000</span></p><div class="growth-bar"></div></div>
-<div class="card"><i class="fab fa-youtube"></i><h4>YouTube</h4><p>Subscribers, Views, Likes, Watch Time<br><span>₹50–₹150 / 1000</span></p><div class="growth-bar"></div></div>
-<div class="card"><i class="fab fa-telegram"></i><h4>Telegram</h4><p>Members, Post Views, Reactions<br><span>₹30–₹70 / 1000</span></p><div class="growth-bar"></div></div>
-<div class="card"><i class="fab fa-twitter"></i><h4>Twitter/X</h4><p>Followers, Likes, Retweets<br><span>₹30–₹100 / 1000</span></p><div class="growth-bar"></div></div>
+<!-- Instagram -->
+<div class="card"><i class="fab fa-instagram"></i><h4>Instagram Followers</h4><p>Grow your followers<br><span>₹50–₹100 / 1000</span></p><div class="growth-bar"></div></div>
+<div class="card"><i class="fab fa-instagram"></i><h4>Instagram Likes</h4><p>Increase likes<br><span>₹40–₹90 / 1000</span></p><div class="growth-bar"></div></div>
+<!-- Facebook -->
+<div class="card"><i class="fab fa-facebook-f"></i><h4>Facebook Likes</h4><p>Boost likes<br><span>₹50–₹100 / 1000</span></p><div class="growth-bar"></div></div>
+<div class="card"><i class="fab fa-facebook-f"></i><h4>Facebook Shares</h4><p>Get shares<br><span>₹60–₹120 / 1000</span></p><div class="growth-bar"></div></div>
+<!-- YouTube -->
+<div class="card"><i class="fab fa-youtube"></i><h4>YouTube Subscribers</h4><p>Gain subscribers<br><span>₹70–₹150 / 1000</span></p><div class="growth-bar"></div></div>
+<div class="card"><i class="fab fa-youtube"></i><h4>YouTube Views</h4><p>Boost views<br><span>₹60–₹130 / 1000</span></p><div class="growth-bar"></div></div>
+<!-- Telegram -->
+<div class="card"><i class="fab fa-telegram-plane"></i><h4>Telegram Members</h4><p>Grow your group<br><span>₹40–₹100 / 1000</span></p><div class="growth-bar"></div></div>
+<div class="card"><i class="fab fa-telegram-plane"></i><h4>Telegram Views</h4><p>Boost post views<br><span>₹30–₹80 / 1000</span></p><div class="growth-bar"></div></div>
+<!-- Twitter -->
+<div class="card"><i class="fab fa-twitter"></i><h4>Twitter Followers</h4><p>Increase followers<br><span>₹50–₹110 / 1000</span></p><div class="growth-bar"></div></div>
+<!-- LinkedIn -->
+<div class="card"><i class="fab fa-linkedin"></i><h4>LinkedIn Connections</h4><p>Gain connections<br><span>₹60–₹120 / 1000</span></p><div class="growth-bar"></div></div>
+<!-- Pinterest -->
+<div class="card"><i class="fab fa-pinterest"></i><h4>Pinterest Followers</h4><p>Boost pins<br><span>₹50–₹100 / 1000</span></p><div class="growth-bar"></div></div>
+<!-- TikTok -->
+<div class="card"><i class="fab fa-tiktok"></i><h4>TikTok Followers</h4><p>Gain followers<br><span>₹60–₹130 / 1000</span></p><div class="growth-bar"></div></div>
+<!-- Spotify -->
+<div class="card"><i class="fab fa-spotify"></i><h4>Spotify Followers</h4><p>Increase followers<br><span>₹50–₹120 / 1000</span></p><div class="growth-bar"></div></div>
 </div>
 </section>
 
@@ -145,15 +150,17 @@ footer a{color:#93c5fd;text-decoration:none;}
 <option value="">Select Service</option>
 <option value="Instagram Followers">Instagram Followers</option>
 <option value="Instagram Likes">Instagram Likes</option>
-<option value="Instagram Reels Views">Instagram Reels Views</option>
 <option value="Facebook Likes">Facebook Likes</option>
 <option value="Facebook Shares">Facebook Shares</option>
 <option value="YouTube Subscribers">YouTube Subscribers</option>
 <option value="YouTube Views">YouTube Views</option>
 <option value="Telegram Members">Telegram Members</option>
-<option value="Telegram Post Views">Telegram Post Views</option>
+<option value="Telegram Views">Telegram Views</option>
 <option value="Twitter Followers">Twitter Followers</option>
-<option value="Twitter Likes">Twitter Likes</option>
+<option value="LinkedIn Connections">LinkedIn Connections</option>
+<option value="Pinterest Followers">Pinterest Followers</option>
+<option value="TikTok Followers">TikTok Followers</option>
+<option value="Spotify Followers">Spotify Followers</option>
 </select>
 <input type="text" id="username" placeholder="Your Social Media Link / Username" required>
 <input type="number" id="quantity" placeholder="Quantity" required>
@@ -166,6 +173,10 @@ footer a{color:#93c5fd;text-decoration:none;}
 <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
 <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
 <a href="https://t.me/Shambhodigitalservicesbot" class="telegram" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+<a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+<a href="#" class="pinterest"><i class="fab fa-pinterest"></i></a>
+<a href="#" class="tiktok"><i class="fab fa-tiktok"></i></a>
+<a href="#" class="spotify"><i class="fab fa-spotify"></i></a>
 </div>
 
 <footer>
@@ -190,32 +201,9 @@ footer a{color:#93c5fd;text-decoration:none;}
 <script>
 function openLogin(){document.getElementById('loginModal').style.display='block';}
 function closeLogin(){document.getElementById('loginModal').style.display='none';}
-
-function registerUser(){
-let user=document.getElementById('loginUser').value;
-let pass=document.getElementById('loginPass').value;
-if(!user||!pass){alert('Fill both fields'); return;}
-if(localStorage.getItem('user_'+user)){alert('User already exists'); return;}
-localStorage.setItem('user_'+user,pass);
-alert('Registered! You can login now'); closeLogin();
-}
-
-function login(){
-let user=document.getElementById('loginUser').value;
-let pass=document.getElementById('loginPass').value;
-if(localStorage.getItem('user_'+user)==pass){
-alert('Login Successful'); closeLogin(); localStorage.setItem('currentUser',user);
-}else{alert('Invalid credentials');}
-}
-
-function sendOrder(e){
-e.preventDefault();
-var service=document.getElementById('service').value;
-var userlink=document.getElementById('username').value;
-var qty=document.getElementById('quantity').value;
-var msg="Hello, I want to place an order:%0AService: "+service+"%0AUsername/Link: "+userlink+"%0AQuantity: "+qty;
-window.open("https://wa.me/917559404077?text="+msg,"_blank");
-}
+function registerUser(){let u=document.getElementById('loginUser').value;let p=document.getElementById('loginPass').value;if(!u||!p){alert('Fill both fields');return;}if(localStorage.getItem('user_'+u)){alert('User exists');return;}localStorage.setItem('user_'+u,p);alert('Registered!');closeLogin();}
+function login(){let u=document.getElementById('loginUser').value;let p=document.getElementById('loginPass').value;if(localStorage.getItem('user_'+u)==p){alert('Login Success');closeLogin();localStorage.setItem('currentUser',u);}else{alert('Invalid credentials');}}
+function sendOrder(e){e.preventDefault();var s=document.getElementById('service').value;var u=document.getElementById('username').value;var q=document.getElementById('quantity').value;var msg="Hello, I want to place an order:%0AService: "+s+"%0AUsername/Link: "+u+"%0AQuantity: "+q;window.open("https://wa.me/917559404077?text="+msg,"_blank");}
 </script>
 
 </body>
