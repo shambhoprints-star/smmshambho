@@ -5,46 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shambho Digital Services</title>
 
-<!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 :root{
 --bg:#f4f6f8;
 --text:#222;
---card:#ffffff;
+--card:#fff;
 --primary:#27ae60;
 --secondary:#ff5722;
 }
-
 body.dark{
 --bg:#121212;
 --text:#f1f1f1;
 --card:#1e1e1e;
---primary:#2ecc71;
---secondary:#ff784e;
 }
-
 body{
 margin:0;
-font-family:Arial, sans-serif;
+font-family:Arial,sans-serif;
 background:var(--bg);
 color:var(--text);
 transition:0.3s;
 }
-
-/* HEADER */
 header{
 background:linear-gradient(120deg,var(--primary),#16a085);
-color:white;
-padding:60px 15px;
+color:#fff;
+padding:55px 15px;
 text-align:center;
-animation:fadeDown 1s ease;
 }
-header h1{margin:0;font-size:34px;}
-header p{margin-top:10px;font-size:16px;}
-
-/* TOGGLE */
 .toggle{
 position:fixed;
 top:15px;
@@ -53,221 +41,229 @@ background:var(--card);
 padding:10px;
 border-radius:50%;
 cursor:pointer;
-box-shadow:0 4px 12px rgba(0,0,0,0.2);
+box-shadow:0 4px 12px rgba(0,0,0,.2);
 }
-
-/* BANNER */
 .banner{
 background:var(--secondary);
-color:white;
-padding:15px;
+color:#fff;
 text-align:center;
-font-size:16px;
-animation:pulse 2s infinite;
+padding:15px;
+font-weight:bold;
 }
-
-/* CONTAINER */
 .container{
-max-width:800px;
+max-width:850px;
 margin:30px auto;
 background:var(--card);
 padding:30px;
 border-radius:15px;
-box-shadow:0 12px 30px rgba(0,0,0,0.15);
-animation:fadeUp 1s ease;
+box-shadow:0 12px 30px rgba(0,0,0,.15);
 }
-
-/* BUTTONS */
-.btn{
-display:inline-block;
-padding:15px 28px;
-margin:10px 5px;
-background:var(--secondary);
-color:white;
-text-decoration:none;
-border-radius:10px;
-font-size:16px;
-transition:0.3s;
-}
-.btn:hover{transform:scale(1.05);}
-
-/* DRAWER */
-.drawer button{
+select,input{
 width:100%;
-padding:16px;
+padding:14px;
+margin:10px 0;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:15px;
+}
+.price-box{
+background:#eee;
+padding:15px;
+border-radius:10px;
+margin-top:10px;
 font-size:17px;
-background:var(--primary);
-color:white;
+}
+.btn{
+width:100%;
+padding:15px;
+margin-top:15px;
 border:none;
 border-radius:10px;
+font-size:16px;
+color:#fff;
 cursor:pointer;
 }
-.drawer-content{
-display:none;
-margin-top:15px;
-background:var(--bg);
-padding:20px;
-border-radius:10px;
-}
-.drawer-content li{
-padding:10px 0;
-border-bottom:1px solid #ccc;
-}
+.whatsapp-btn{background:#25D366;}
+.telegram-btn{background:#0088cc;}
 
-/* SERVICES ICONS */
 .services{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:20px;
+gap:15px;
 margin-top:25px;
 }
 .service{
-background:var(--bg);
+background:#eee;
 padding:20px;
 border-radius:12px;
 text-align:center;
-transition:0.3s;
 }
-.service:hover{transform:translateY(-5px);}
 .service i{
-font-size:32px;
+font-size:30px;
 color:var(--primary);
+margin-bottom:8px;
+}
+
+.testimonials{
+margin-top:35px;
+}
+.testimonial{
+background:#eee;
+padding:15px;
+border-radius:10px;
 margin-bottom:10px;
 }
 
-/* TESTIMONIALS */
-.testimonials{
-margin-top:40px;
-}
-.testimonial{
-background:var(--bg);
-padding:20px;
-border-radius:12px;
-margin-bottom:15px;
-animation:fadeUp 1s ease;
-}
-
-/* WHATSAPP */
-.whatsapp img{
-width:65px;
-margin-top:20px;
-animation:float 2s infinite;
-}
-
-/* FOOTER */
 footer{
 background:#111;
 color:#ccc;
 padding:30px 15px;
 margin-top:50px;
+font-size:13px;
 }
 footer h3{color:var(--primary);}
-
-/* ANIMATIONS */
-@keyframes fadeUp{
-from{opacity:0;transform:translateY(30px);}
-to{opacity:1;transform:translateY(0);}
-}
-@keyframes fadeDown{
-from{opacity:0;transform:translateY(-30px);}
-to{opacity:1;transform:translateY(0);}
-}
-@keyframes float{
-0%{transform:translateY(0);}
-50%{transform:translateY(-8px);}
-100%{transform:translateY(0);}
-}
-@keyframes pulse{
-0%{opacity:1;}
-50%{opacity:0.8;}
-100%{opacity:1;}
-}
 </style>
 
 <script>
-function toggleDrawer(){
-let d=document.getElementById("drawer");
-d.style.display=d.style.display==="block"?"none":"block";
-}
 function toggleDark(){
 document.body.classList.toggle("dark");
+}
+
+const services={
+"Instagram Followers":{rate:0.10,min:100,max:10000},
+"Instagram Likes":{rate:0.05,min:50,max:20000},
+"Reel Views":{rate:0.02,min:100,max:100000},
+"YouTube Views":{rate:0.05,min:100,max:50000},
+"YouTube Subscribers":{rate:1.00,min:50,max:5000}
+};
+
+function updatePrice(){
+let s=document.getElementById("service").value;
+let q=document.getElementById("quantity").value;
+let box=document.getElementById("price");
+if(!services[s]){box.innerHTML="Select service to see price";return;}
+let d=services[s];
+document.getElementById("quantity").min=d.min;
+document.getElementById("quantity").max=d.max;
+if(q<d.min||q>d.max){
+box.innerHTML=`Quantity must be between ${d.min} – ${d.max}`;
+return;
+}
+box.innerHTML=`Total Price: ₹${(q*d.rate).toFixed(2)}`;
+}
+
+function sendWA(){
+let msg=`New Order - Shambho Digital Services
+Platform: ${platform.value}
+Service: ${service.value}
+Quantity: ${quantity.value}
+${price.innerText}
+Link: ${link.value}`;
+window.open("https://wa.me/917559404077?text="+encodeURIComponent(msg));
+}
+
+function sendTG(){
+let msg=`Platform: ${platform.value}
+Service: ${service.value}
+Quantity: ${quantity.value}
+${price.innerText}
+Link: ${link.value}`;
+window.open("https://t.me/Shambhodigitalservicesbot?start="+encodeURIComponent(msg));
 }
 </script>
 </head>
 
 <body>
 
-<div class="toggle" onclick="toggleDark()">
-<i class="fas fa-moon"></i>
-</div>
+<div class="toggle" onclick="toggleDark()"><i class="fas fa-moon"></i></div>
 
 <header>
 <h1>🚀 Shambho Digital Services</h1>
-<p>Fast & Trusted SMM Services | जलद आणि विश्वासार्ह SMM सेवा</p>
+<p>Fast & Trusted SMM Services</p>
 </header>
 
-<div class="banner">
-🔥 Cheap Rates • Fast Delivery • Trusted Service 🔥
-</div>
+<div class="banner">🔥 Cheap Rates • Auto Orders • Trusted Service 🔥</div>
 
 <div class="container">
 
-<p><b>Grow your Instagram, YouTube & Facebook fast!</b><br>
-Followers • Likes • Views • Subscribers</p>
+<h3>📌 Place Your Order</h3>
 
-<div class="drawer">
-<button onclick="toggleDrawer()">📊 Services & Rates</button>
-<div class="drawer-content" id="drawer">
-<ul>
-<li>Instagram Followers – ₹100+</li>
-<li>Instagram Likes – ₹50+</li>
-<li>Reels Views – ₹20+</li>
-<li>YouTube Views/Subs – ₹50+</li>
-</ul>
-<p>💳 Payment Manual | Order Fully Automatic</p>
-</div>
-</div>
+<select id="platform">
+<option>Instagram</option>
+<option>YouTube</option>
+<option>Facebook</option>
+</select>
+
+<select id="service" onchange="updatePrice()">
+<option value="">Select Service</option>
+<option>Instagram Followers</option>
+<option>Instagram Likes</option>
+<option>Reel Views</option>
+<option>YouTube Views</option>
+<option>YouTube Subscribers</option>
+</select>
+
+<input type="number" id="quantity" placeholder="Enter Quantity" oninput="updatePrice()">
+<input type="text" id="link" placeholder="Paste Profile / Post Link">
+
+<label>📸 Upload Payment Screenshot (WhatsApp/Telegram वर manually send करा)</label>
+<input type="file" accept="image/*">
+
+<div class="price-box" id="price">Select service to see price</div>
+
+<button class="btn whatsapp-btn" onclick="sendWA()">
+<i class="fab fa-whatsapp"></i> Submit via WhatsApp
+</button>
+
+<button class="btn telegram-btn" onclick="sendTG()">
+<i class="fab fa-telegram"></i> Submit via Telegram
+</button>
 
 <div class="services">
 <div class="service"><i class="fab fa-instagram"></i><p>Instagram Growth</p></div>
 <div class="service"><i class="fab fa-youtube"></i><p>YouTube Promotion</p></div>
-<div class="service"><i class="fab fa-facebook"></i><p>Facebook Boost</p></div>
 <div class="service"><i class="fas fa-bolt"></i><p>Instant Delivery</p></div>
-</div>
-
-<div style="text-align:center;margin-top:30px;">
-<a class="btn" href="https://t.me/Shambhodigitalservicesbot" target="_blank">
-<i class="fab fa-telegram"></i> Order via Telegram
-</a>
-
-<div class="whatsapp">
-<a href="https://wa.me/917559404077?text=Hi%20Shambho%20Digital%20Services,%0AI%20want%20to%20place%20an%20order.%0AService:%20_____%0ALink:%20_____%0AQuantity:%20_____" target="_blank">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-</a>
-</div>
+<div class="service"><i class="fas fa-shield-alt"></i><p>Trusted Service</p></div>
 </div>
 
 <div class="testimonials">
-<h2>⭐ Customer Reviews</h2>
-<div class="testimonial">🔥 Fast delivery & genuine service – Aman</div>
-<div class="testimonial">💯 Best SMM panel in budget – Rohit</div>
-<div class="testimonial">👍 Trusted & smooth experience – Sneha</div>
+<h3>⭐ Customer Reviews</h3>
+<div class="testimonial">🔥 Fast delivery – Aman</div>
+<div class="testimonial">💯 Best rates – Rohit</div>
+<div class="testimonial">👍 Trusted service – Sneha</div>
 </div>
 
 </div>
 
 <footer>
 <h3>Terms & Conditions</h3>
-<p>No refund after order placed. Platform policy changes not our responsibility.</p>
+<p>
+No refund after order placed.  
+Service delivery depends on third-party platforms.  
+Delays or drops may occur due to platform updates.
+</p>
 
 <h3>Disclaimer</h3>
-<p>Followers/Likes may drop. We do not guarantee lifetime services.</p>
+<p>
+Followers, likes or views may drop over time.  
+We do not guarantee permanent results.  
+We are not responsible for account bans or restrictions.
+</p>
+
+<h3>Affiliation Disclaimer</h3>
+<p>
+We are <b>not affiliated, associated, authorized, endorsed by, or officially connected</b> with  
+Instagram, Meta (Facebook), Google, YouTube or any of their subsidiaries.
+</p>
 
 <h3>Privacy Policy</h3>
-<p>Your order data is safe and never shared.</p>
+<p>
+We collect only order-related information.  
+Customer data is confidential and never shared.
+</p>
 
 <p style="text-align:center;margin-top:20px;">
-© 2026 Shambho Digital Services
+© 2026 Shambho Digital Services | All Rights Reserved
 </p>
 </footer>
 
